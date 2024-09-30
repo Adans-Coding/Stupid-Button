@@ -6,11 +6,15 @@
     <title>Joke Button</title>
   </head>
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+   @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
     * {
       padding: 0;
       margin: 0;
     }
-    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+   
+
     body {
       background-image: url("bg.jpg");
       background-color: rgba(0, 0, 0, 0.5);
@@ -18,7 +22,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       color: white;
-      font-family: "Inter", sans-serif;
+      font-family: "Montserrat", sans-serif;
     }
     section {
       display: flex;
@@ -29,7 +33,7 @@
     .container {
       width: 100%;
       min-height: 400px;
-      max-width: 650px;
+      max-width: 600px;
       background-color: rgba(0, 0, 0, 0.4);
       border: 2px solid rgba(255, 255, 255, 0.4);
       backdrop-filter: blur(5px);
@@ -65,6 +69,23 @@
     .buttons:hover {
       box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
     }
+
+    /* let make it for mobile */
+    @media (max-width: 480px) {
+      body {
+        background-position-x: 50%;
+      }
+      .container {
+        margin: 20px;
+      }
+      .main-heading {
+        font-size: 35px;
+      }
+      .button-div {
+        gap: 20px;
+        min-width: 270px;
+      }
+    }
   </style>
   <body>
     <section>
@@ -82,7 +103,7 @@
     let no = document.querySelector("#no-button");
     let button_div = document.querySelector(".button-div");
     let text = document.querySelector(".main-heading");
-    const box = document.querySelector('.container');
+    const box = document.querySelector(".container");
     let yes_text = `I know you would say yes🤭😋<br><br>Meet me tomorrow 😏`;
 
     // let's add functionality of no button
@@ -98,7 +119,7 @@
 
     no.addEventListener("mouseover", () => {
       // Calculate new positions that are at least 20% away from the current position
-      no.style.position = "absolute"
+      no.style.position = "absolute";
       let newX, newY;
 
       do {
@@ -117,9 +138,9 @@
       no.style.top = `${currentY}px`;
     });
 
-    yes.addEventListener('click',()=>{
+    yes.addEventListener("click", () => {
       button_div.remove();
       text.innerHTML = yes_text;
-    })
+    });
   </script>
 </html>
